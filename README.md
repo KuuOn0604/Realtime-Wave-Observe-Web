@@ -22,6 +22,8 @@
 
 - 23/07/2026: Version beta 0.0.0.1: Thêm husky pre-commit, rules.md
 
+- sẽ bổ sung thêm scikit-learn cho random forest
+
 ---
 
 ## 📋 Mục Lục
