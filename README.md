@@ -73,36 +73,36 @@
 │  │  │         ▼                    ▼                     │  │   │
 │  │  │   socket.io-client    REST API calls               │  │   │
 │  │  └────────────┬───────────────────┬───────────────────┘  │   │
-│  │               │  ws://localhost   │  http://localhost     │   │
-│  │               │  :3000            │  :3000                │   │
-│  └───────────────┼───────────────────┼───────────────────────┘   │
-│                  │                   │                            │
-│  ┌───────────────┼───────────────────┼───────────────────────┐   │
-│  │               ▼                   ▼                        │   │
-│  │          BACKEND — Node.js / Express v5 / Socket.IO        │   │
-│  │                   (backend/server.js)                      │   │
-│  │                                                            │   │
-│  │   Socket.IO Server ──► Sensor Data Ingestion              │   │
-│  │   REST API     ──────► SQLite + CSV Storage               │   │
-│  │   Proxy /predict ────► http://127.0.0.1:8000              │   │
-│  └─────────────────────────────┬──────────────────────────────┘  │
-│                                │  http://127.0.0.1:8000           │
-│  ┌─────────────────────────────┼──────────────────────────────┐   │
-│  │                             ▼                              │   │
-│  │        AI SERVICE — Python / FastAPI / PyTorch             │   │
-│  │                   (ai_service/main.py)                     │   │
-│  │                                                            │   │
-│  │   POST /predict  ──► PyTorch Model Inference               │   │
-│  │   POST /process  ──► SciPy Signal Processing (FFT)        │   │
-│  │   GET  /health   ──► Service health check                  │   │
-│  └────────────────────────────────────────────────────────────┘   │
-│                                                                    │
-│  ┌─────────────────────────────────────────────────────────────┐  │
-│  │              DATA STORAGE (Local)                           │  │
-│  │  data_storage/metadata.db       ← SQLite (phiên đo)        │  │
-│  │  data_storage/raw_waves/*.csv   ← Dữ liệu thô sóng         │  │
-│  └─────────────────────────────────────────────────────────────┘  │
-└───────────────────────────────────────────────────────────────────┘
+│  │               │  ws://localhost   │  http://localhost    │   │
+│  │               │  :3000            │  :3000               │   │
+│  └───────────────┼───────────────────┼──────────────────────┘   │
+│                  │                   │                          │
+│  ┌───────────────┼───────────────────┼──────────────────────┐   │
+│  │               ▼                   ▼                      │   │
+│  │          BACKEND — Node.js / Express v5 / Socket.IO      │   │
+│  │                   (backend/server.js)                    │   │
+│  │                                                          │   │
+│  │   Socket.IO Server ──► Sensor Data Ingestion             │   │
+│  │   REST API     ──────► SQLite + CSV Storage              │   │
+│  │   Proxy /predict ────► http://127.0.0.1:8000             │   │
+│  └─────────────────────────────┬────────────────────────────┘   │
+│                                │  http://127.0.0.1:8000         │
+│  ┌─────────────────────────────┼────────────────────────────┐   │
+│  │                             ▼                            │   │
+│  │        AI SERVICE — Python / FastAPI / PyTorch           │   │
+│  │                   (ai_service/main.py)                   │   │
+│  │                                                          │   │
+│  │   POST /predict  ──► PyTorch Model Inference             │   │
+│  │   POST /process  ──► SciPy Signal Processing (FFT)       │   │
+│  │   GET  /health   ──► Service health check                │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │              DATA STORAGE (Local)                         │  │
+│  │  data_storage/metadata.db       ← SQLite (phiên đo)       │  │
+│  │  data_storage/raw_waves/*.csv   ← Dữ liệu thô sóng        │  │
+│  └───────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### Giao Tiếp Giữa Các Dịch Vụ
