@@ -20,7 +20,7 @@
 
 - 23/07/2026: Version beta 0.0.0.0: Thuần init, sửa lỗi init, code chỉ mang tính minh họa
 
-- 23/07/2026: Version beta 0.0.0.1: Thêm husky pre-commit,...
+- 23/07/2026: Version beta 0.0.0.1: Thêm husky pre-commit, rules.md
 
 ---
 
