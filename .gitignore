@@ -1,0 +1,58 @@
+# Realtime Wave Observer — .gitignore (Root level)
+
+# ── Node / pnpm ────────────────────────────────────────────────────────────
+node_modules/
+.pnpm-store/
+pnpm-debug.log*
+
+# ── Frontend build output ─────────────────────────────────────────────────
+frontend/dist/
+frontend/.vite/
+
+# ── Backend ────────────────────────────────────────────────────────────────
+backend/.env
+backend/node_modules/
+
+# ── Electron build output ─────────────────────────────────────────────────
+dist-electron/
+out/
+
+# ── Python / AI Service ───────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+ai_service/__pycache__/
+ai_service/.venv/
+ai_service/venv/
+ai_service/dist/        # PyInstaller output
+ai_service/build/       # PyInstaller build cache
+ai_service/*.spec       # PyInstaller spec files (generated)
+*.egg-info/
+
+# ── Data Storage (không commit dữ liệu thu thập được ngoài biển) ──────────
+data_storage/raw_waves/*.csv
+data_storage/raw_waves/*.parquet
+data_storage/metadata.db
+data_storage/metadata.db-shm
+data_storage/metadata.db-wal
+
+# ── AI Model weights (thường quá lớn cho Git, dùng Git LFS hoặc DVC) ─────
+ai_service/models/*.pt
+ai_service/models/*.pth
+ai_service/models/*.h5
+ai_service/models/*.onnx
+
+# ── Editor & OS ───────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+*.swp
+*.swo
+
+# ── Logs ──────────────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*

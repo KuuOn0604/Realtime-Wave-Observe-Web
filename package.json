@@ -1,0 +1,64 @@
+{
+  "name": "realtime-wave-observe",
+  "version": "1.0.0",
+  "description": "Realtime Wave Observer — Desktop App for offshore field testing",
+  "private": true,
+  "main": "electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --kill-others --names \"FRONTEND,BACKEND,AI,ELECTRON\" --prefix-colors \"cyan,green,yellow,magenta\" \"pnpm --filter frontend dev\" \"pnpm --filter backend dev\" \"uvicorn ai_service.main:app --host 127.0.0.1 --port 8000 --reload\" \"wait-on http://localhost:5173 http://localhost:3000 http://localhost:8000/health && electron .\"",
+    "dev:fe": "pnpm --filter frontend dev",
+    "dev:be": "pnpm --filter backend dev",
+    "dev:ai": "uvicorn ai_service.main:app --host 127.0.0.1 --port 8000 --reload",
+    "dev:electron": "electron .",
+    "build:fe": "pnpm --filter frontend build",
+    "build:ai": "cd ai_service && pyinstaller --onefile --name ai_engine main.py",
+    "build:electron": "pnpm run build:fe && electron-builder",
+    "lint": "pnpm --filter frontend lint"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3",
+    "wait-on": "^9.1.0"
+  },
+  "build": {
+    "appId": "com.compumat.wave-observe",
+    "productName": "Realtime Wave Observer",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/**/*",
+      "frontend/dist/**/*",
+      "backend/**/*",
+      "!backend/node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "ai_service/dist/ai_engine.exe",
+        "to": "ai_engine.exe"
+      },
+      {
+        "from": "backend",
+        "to": "backend",
+        "filter": [
+          "**/*",
+          "!node_modules/**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "electron/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

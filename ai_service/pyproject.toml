@@ -1,0 +1,25 @@
+[project]
+name = "ai-service"
+version = "0.1.0"
+description = "AI Microservice for Realtime Wave Observer — FastAPI + PyTorch + SciPy"
+requires-python = ">=3.10"
+
+[tool.ruff]
+# Độ dài tối đa của 1 dòng
+line-length = 100
+# Target phiên bản Python (ví dụ: 3.10 hoặc 3.11)
+target-version = "py310"
+
+[tool.ruff.lint]
+# Kích hoạt quy tắc của Flake8 (E, F) và isort (I)
+select = ["E", "F", "I"]
+# Bỏ qua các quy tắc cụ thể nếu cần
+ignore = []
+
+# Tự động fix các lỗi cơ bản
+fixable = ["ALL"]
+unfixable = []
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
