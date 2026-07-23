@@ -1,6 +1,6 @@
 {
   "name": "realtime-wave-observe",
-  "version": "1.0.0",
+  "version": "0.0.0-1",
   "description": "Realtime Wave Observer — Desktop App for offshore field testing",
   "private": true,
   "main": "electron/main.js",
@@ -14,20 +14,31 @@
     "build:fe": "pnpm --filter frontend build",
     "build:ai": "cd ai_service && pyinstaller --onefile --name ai_engine main.py",
     "build:electron": "pnpm run build:fe && electron-builder",
-    "lint": "pnpm --filter frontend lint"
+    "lint": "pnpm --filter frontend lint",
+    "prepare": "husky"
   },
   "workspaces": [
     "frontend",
-    "backend"
+    "backend",
+    "electron"
   ],
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "concurrently": "^10.0.3",
     "electron": "^43.2.0",
     "electron-builder": "^26.15.3",
+    "eslint": "^10.7.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "globals": "^17.7.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.1.1",
+    "prettier": "^3.9.6",
     "wait-on": "^9.1.0"
   },
   "build": {
     "appId": "com.compumat.wave-observe",
+    "buildVersion": "1",
     "productName": "Realtime Wave Observer",
     "directories": {
       "output": "dist-electron"

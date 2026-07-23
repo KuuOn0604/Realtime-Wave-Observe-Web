@@ -71,3 +71,9 @@
 - **Commit:** Conventional Commits: `feat(backend): add sensor subscription endpoint`.
 - **Scope:** `frontend`, `backend`, `ai_service`, `electron`, `root`.
 - **Không commit:** `.env`, model weights (`.pt`, `.pth`), raw CSV data, `node_modules/`, `.venv/`.
+
+## 10. Versioning Standard
+- Dự án bắt buộc sử dụng chuẩn 4 chữ số `Major.Minor.Patch.Build` (Enterprise Standard).
+- Chữ số thứ 4 đại diện cho Build Number hoặc Internal Revision, phục vụ riêng cho tracking lỗi từ QA/QC.
+- Khi có lệnh nâng cấp phiên bản, AI phải tự động rà soát và cập nhật đồng bộ thông số này trên toàn bộ các vi dịch vụ (Frontend, Backend, AI Service, Electron).
+- Trong hệ sinh thái npm/pnpm, do ràng buộc Strict SemVer, phiên bản trong `package.json` sẽ sử dụng định dạng `Major.Minor.Patch-Build` (ví dụ `0.0.0-1`), nhưng file exe xuất ra thông qua `buildVersion` của `electron-builder` sẽ giữ đúng logic `0.0.0.1`.

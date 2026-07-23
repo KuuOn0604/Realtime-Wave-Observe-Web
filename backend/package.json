@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "1.0.0",
+  "version": "0.0.0-1",
   "description": "Node.js Express backend — Realtime Wave Observer",
   "main": "server.js",
   "scripts": {
