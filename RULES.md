@@ -105,6 +105,21 @@ Theo chuẩn **Conventional Commits**:
 
 **Tên Branch:**
 Sử dụng cấu trúc `[type]/[feature-name]` (vd: `feat/sensor-integration`, `fix/socket-timeout`).
+### Branch Workflow
+
+Dự án sử dụng 3 tầng nhánh:
+
+- `main`: phiên bản ổn định, không push trực tiếp.
+- `develop`: nhánh tích hợp chung, không push trực tiếp.
+- `feat/...`, `fix/...`, `docs/...`, `test/...`: nhánh làm việc.
+
+Mọi Pull Request từ nhánh công việc phải merge vào `develop`.
+
+`develop` chỉ được merge vào `main` tại các mốc release/milestone đã được kiểm tra.
+
+Chi tiết quy trình xem tại:
+
+`docs/GIT_WORKFLOW.md`
 
 ### 💻 Naming Variables / Functions / Files
 - **CamelCase:** Dùng cho biến (Variables), hàm (Functions), instances.

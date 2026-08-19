@@ -436,6 +436,6 @@ curl http://localhost:8000/health
 
 **© 2026 CompuMat — Dự án nội bộ. Không phân phối.**
 
-_Realtime Wave Observer — Giai đoạn 1 hoàn tất ✅_
+_Realtime Wave Observer — Development 
 
 </div>
